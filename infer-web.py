@@ -78,7 +78,6 @@ from config import Config
 from infer_uvr5 import _audio_pre_
 from my_utils import load_audio
 from train.process_ckpt import show_info, change_info, merge, extract_small_model
-
 config = Config()
 # from trainset_preprocess_pipeline import PreProcess
 logging.getLogger("numba").setLevel(logging.WARNING)
@@ -1237,7 +1236,7 @@ with gr.Blocks() as app:
                 )
                 with gr.Row():
                     trainset_dir4 = gr.Textbox(
-                        label=i18n("输入训练文件夹路径"), value="E:\\语音音频+标注\\米津玄师\\src"
+                        label=i18n("输入训练文件夹路径"), value="content\/dataset"
                     )
                     spk_id5 = gr.Slider(
                         minimum=0,
@@ -1294,15 +1293,15 @@ with gr.Blocks() as app:
                         maximum=50,
                         step=1,
                         label=i18n("保存频率save_every_epoch"),
-                        value=5,
+                        value=50,
                         interactive=True,
                     )
                     total_epoch11 = gr.Slider(
                         minimum=0,
-                        maximum=1000,
+                        maximum=10000,
                         step=1,
                         label=i18n("总训练轮数total_epoch"),
-                        value=20,
+                        value=100,
                         interactive=True,
                     )
                     batch_size12 = gr.Slider(
